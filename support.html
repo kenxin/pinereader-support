@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>帮助与支持 - 松果阅读</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 18px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            margin-bottom: 15px;
+        }
+
+        .page-title {
+            font-size: 2em;
+            color: white;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .content-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 1.5em;
+            color: #667eea;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .section-title:first-child {
+            margin-top: 0;
+        }
+
+        .faq-item {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            border-left: 4px solid #667eea;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .faq-answer {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .faq-answer ul, .faq-answer ol {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        .faq-answer li {
+            margin-bottom: 5px;
+        }
+
+        .steps {
+            counter-reset: step-counter;
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .steps li {
+            counter-increment: step-counter;
+            margin-bottom: 15px;
+            padding-left: 35px;
+            position: relative;
+        }
+
+        .steps li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+
+        .contact-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .contact-box h3 {
+            margin-bottom: 15px;
+        }
+
+        .contact-box a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .lang-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 8px 16px;
+            border-radius: 20px;
+            color: white;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .lang-switch:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .back-link {
+            color: white;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            transition: background 0.2s;
+        }
+
+        .back-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="lang-switch" onclick="switchLanguage()">
+        <span id="lang-text">EN</span>
+    </div>
+
+    <div class="container">
+        <a href="index.html" class="back-link" id="back-link">← 返回首页</a>
+
+        <div class="header">
+            <img src="assets/app_icon.png" alt="松果阅读" class="app-icon">
+            <h1 class="page-title" id="page-title">帮助与支持</h1>
+        </div>
+
+        <div class="content-card">
+            <h2 class="section-title" id="getting-started">快速入门</h2>
+
+            <div class="faq-item">
+                <div class="faq-question" id="q1">如何导入 TXT 文件？</div>
+                <div class="faq-answer" id="a1">
+                    <ol class="steps">
+                        <li>打开松果阅读，点击右上角的 "+" 按钮</li>
+                        <li>选择 "导入文件"</li>
+                        <li>从 iOS 文件选择器中选择您的 TXT 文件</li>
+                        <li>文件将自动导入到书库中</li>
+                    </ol>
+                    <p style="margin-top: 10px;">您也可以从"文件" App 中直接拖拽 TXT 文件到松果阅读。</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" id="q2">如何整理我的书库？</div>
+                <div class="faq-answer" id="a2">
+                    <ol class="steps">
+                        <li>点击右上角的 "+" 按钮，选择 "创建文件夹"</li>
+                        <li>输入文件夹名称</li>
+                        <li>长按文件，拖拽到文件夹中即可</li>
+                    </ol>
+                    <p style="margin-top: 10px;">提示：您可以在列表视图和网格视图之间切换，也可以按时间或名称排序。</p>
+                </div>
+            </div>
+
+            <h2 class="section-title" id="reading-features">阅读功能</h2>
+
+            <div class="faq-item">
+                <div class="faq-question" id="q3">如何调整阅读设置？</div>
+                <div class="faq-answer" id="a3">
+                    <p>在阅读页面，点击右上角的菜单按钮（三个点），选择"阅读设置"，您可以：</p>
+                    <ul>
+                        <li>选择 6 种中文字体（系统默认、霞鹜文楷、龙藏体等）</li>
+                        <li>调节字体大小（12-32pt）</li>
+                        <li>选择背景（纯白或 3 张精美背景图）</li>
+                        <li>切换主题（白天/夜间/护眼）</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" id="q4">如何添加和管理书签？</div>
+                <div class="faq-answer" id="a4">
+                    <p><strong>添加书签：</strong></p>
+                    <ol class="steps">
+                        <li>在阅读页面，点击右上角菜单，选择"添加书签"</li>
+                        <li>可选择性添加备注</li>
+                        <li>点击保存</li>
+                    </ol>
+                    <p style="margin-top: 15px;"><strong>查看书签：</strong></p>
+                    <p>点击菜单中的"书签列表"，可查看所有书签。点击任意书签即可跳转到相应位置，即使是其他文件的书签也可以。</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" id="q5">如何使用文字转语音（TTS）功能？</div>
+                <div class="faq-answer" id="a5">
+                    <ol class="steps">
+                        <li>在阅读页面，点击右上角菜单，选择"文字转语音"</li>
+                        <li>首次使用时，请确保已下载系统语音包（iOS 设置 → 辅助功能 → 朗读内容 → 声音）</li>
+                        <li>播放后，可通过底部控制栏调节语速、选择语音、暂停/继续</li>
+                        <li>双击文本可跳转到该位置朗读</li>
+                    </ol>
+                    <p style="margin-top: 10px;">提示：TTS 支持自动翻页，朗读完当前页会自动翻到下一页继续。</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" id="q6">如何搜索文章内容？</div>
+                <div class="faq-answer" id="a6">
+                    <ol class="steps">
+                        <li>在阅读页面，点击右上角菜单，选择"搜索"</li>
+                        <li>输入关键词</li>
+                        <li>点击搜索结果即可跳转到相应位置</li>
+                    </ol>
+                </div>
+            </div>
+
+            <h2 class="section-title" id="troubleshooting">常见问题</h2>
+
+            <div class="faq-item">
+                <div class="faq-question" id="q7">为什么导入的文件显示乱码？</div>
+                <div class="faq-answer" id="a7">
+                    <p>松果阅读支持自动检测 UTF-8、GBK、GB2312 编码。如果仍然乱码，可能是文件使用了不常见的编码格式。</p>
+                    <p style="margin-top: 10px;"><strong>解决方法：</strong></p>
+                    <ul>
+                        <li>使用文本编辑器将文件转换为 UTF-8 编码后重新导入</li>
+                        <li>或联系我们报告问题，我们会考虑支持更多编码格式</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" id="q8">TTS 提示语音不可用怎么办？</div>
+                <div class="faq-answer" id="a8">
+                    <p>这是因为系统未下载对应语言的语音包。请按照以下步骤操作：</p>
+                    <ol class="steps">
+                        <li>打开 iOS "设置" App</li>
+                        <li>前往 "辅助功能" → "朗读内容" → "声音"</li>
+                        <li>选择"中文"或"英文"（根据您的需求）</li>
+                        <li>下载需要的语音（建议选择"增强质量"的语音）</li>
+                        <li>返回松果阅读即可使用</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" id="q9">重装 App 后数据会丢失吗？</div>
+                <div class="faq-answer" id="a9">
+                    <p>是的，由于 iOS 系统限制，卸载 App 会删除所有数据（包括导入的文件、阅读记录、书签等）。</p>
+                    <p style="margin-top: 10px;"><strong>建议：</strong></p>
+                    <ul>
+                        <li>定期备份重要的 TXT 文件到 iCloud 或其他云存储</li>
+                        <li>升级 App 时不要卸载，直接更新即可保留所有数据</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="contact-box">
+                <h3 id="contact-title">还有其他问题？</h3>
+                <p id="contact-desc">如果您遇到任何问题或有功能建议，欢迎通过邮件联系我们：</p>
+                <p style="margin-top: 10px;">
+                    <a href="mailto:pinecloud.ju@gmail.com">pinecloud.ju@gmail.com</a>
+                </p>
+                <p style="margin-top: 15px; font-size: 0.9em; opacity: 0.9;" id="contact-note">
+                    我们会尽快回复您的邮件。感谢使用松果阅读！
+                </p>
+            </div>
+
+            <div style="text-align: center;">
+                <a href="index.html" class="btn" id="back-home">返回首页</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentLang = 'zh';
+
+        const translations = {
+            zh: {
+                'lang-text': 'EN',
+                'back-link': '← 返回首页',
+                'page-title': '帮助与支持',
+                'getting-started': '快速入门',
+                'q1': '如何导入 TXT 文件？',
+                'a1': `<ol class="steps">
+                        <li>打开松果阅读，点击右上角的 "+" 按钮</li>
+                        <li>选择 "导入文件"</li>
+                        <li>从 iOS 文件选择器中选择您的 TXT 文件</li>
+                        <li>文件将自动导入到书库中</li>
+                    </ol>
+                    <p style="margin-top: 10px;">您也可以从"文件" App 中直接拖拽 TXT 文件到松果阅读。</p>`,
+                'q2': '如何整理我的书库？',
+                'a2': `<ol class="steps">
+                        <li>点击右上角的 "+" 按钮，选择 "创建文件夹"</li>
+                        <li>输入文件夹名称</li>
+                        <li>长按文件，拖拽到文件夹中即可</li>
+                    </ol>
+                    <p style="margin-top: 10px;">提示：您可以在列表视图和网格视图之间切换，也可以按时间或名称排序。</p>`,
+                'reading-features': '阅读功能',
+                'q3': '如何调整阅读设置？',
+                'a3': `<p>在阅读页面，点击右上角的菜单按钮（三个点），选择"阅读设置"，您可以：</p>
+                    <ul>
+                        <li>选择 6 种中文字体（系统默认、霞鹜文楷、龙藏体等）</li>
+                        <li>调节字体大小（12-32pt）</li>
+                        <li>选择背景（纯白或 3 张精美背景图）</li>
+                        <li>切换主题（白天/夜间/护眼）</li>
+                    </ul>`,
+                'q4': '如何添加和管理书签？',
+                'a4': `<p><strong>添加书签：</strong></p>
+                    <ol class="steps">
+                        <li>在阅读页面，点击右上角菜单，选择"添加书签"</li>
+                        <li>可选择性添加备注</li>
+                        <li>点击保存</li>
+                    </ol>
+                    <p style="margin-top: 15px;"><strong>查看书签：</strong></p>
+                    <p>点击菜单中的"书签列表"，可查看所有书签。点击任意书签即可跳转到相应位置，即使是其他文件的书签也可以。</p>`,
+                'q5': '如何使用文字转语音（TTS）功能？',
+                'a5': `<ol class="steps">
+                        <li>在阅读页面，点击右上角菜单，选择"文字转语音"</li>
+                        <li>首次使用时，请确保已下载系统语音包（iOS 设置 → 辅助功能 → 朗读内容 → 声音）</li>
+                        <li>播放后，可通过底部控制栏调节语速、选择语音、暂停/继续</li>
+                        <li>双击文本可跳转到该位置朗读</li>
+                    </ol>
+                    <p style="margin-top: 10px;">提示：TTS 支持自动翻页，朗读完当前页会自动翻到下一页继续。</p>`,
+                'q6': '如何搜索文章内容？',
+                'a6': `<ol class="steps">
+                        <li>在阅读页面，点击右上角菜单，选择"搜索"</li>
+                        <li>输入关键词</li>
+                        <li>点击搜索结果即可跳转到相应位置</li>
+                    </ol>`,
+                'troubleshooting': '常见问题',
+                'q7': '为什么导入的文件显示乱码？',
+                'a7': `<p>松果阅读支持自动检测 UTF-8、GBK、GB2312 编码。如果仍然乱码，可能是文件使用了不常见的编码格式。</p>
+                    <p style="margin-top: 10px;"><strong>解决方法：</strong></p>
+                    <ul>
+                        <li>使用文本编辑器将文件转换为 UTF-8 编码后重新导入</li>
+                        <li>或联系我们报告问题，我们会考虑支持更多编码格式</li>
+                    </ul>`,
+                'q8': 'TTS 提示语音不可用怎么办？',
+                'a8': `<p>这是因为系统未下载对应语言的语音包。请按照以下步骤操作：</p>
+                    <ol class="steps">
+                        <li>打开 iOS "设置" App</li>
+                        <li>前往 "辅助功能" → "朗读内容" → "声音"</li>
+                        <li>选择"中文"或"英文"（根据您的需求）</li>
+                        <li>下载需要的语音（建议选择"增强质量"的语音）</li>
+                        <li>返回松果阅读即可使用</li>
+                    </ol>`,
+                'q9': '重装 App 后数据会丢失吗？',
+                'a9': `<p>是的，由于 iOS 系统限制，卸载 App 会删除所有数据（包括导入的文件、阅读记录、书签等）。</p>
+                    <p style="margin-top: 10px;"><strong>建议：</strong></p>
+                    <ul>
+                        <li>定期备份重要的 TXT 文件到 iCloud 或其他云存储</li>
+                        <li>升级 App 时不要卸载，直接更新即可保留所有数据</li>
+                    </ul>`,
+                'contact-title': '还有其他问题？',
+                'contact-desc': '如果您遇到任何问题或有功能建议，欢迎通过邮件联系我们：',
+                'contact-note': '我们会尽快回复您的邮件。感谢使用松果阅读！',
+                'back-home': '返回首页'
+            },
+            en: {
+                'lang-text': '中文',
+                'back-link': '← Back to Home',
+                'page-title': 'Help & Support',
+                'getting-started': 'Getting Started',
+                'q1': 'How to import TXT files?',
+                'a1': `<ol class="steps">
+                        <li>Open PineReader and tap the "+" button in the top right corner</li>
+                        <li>Select "Import File"</li>
+                        <li>Choose your TXT file from the iOS file picker</li>
+                        <li>The file will be automatically imported to your library</li>
+                    </ol>
+                    <p style="margin-top: 10px;">You can also drag and drop TXT files from the Files app directly into PineReader.</p>`,
+                'q2': 'How to organize my library?',
+                'a2': `<ol class="steps">
+                        <li>Tap the "+" button in the top right corner and select "Create Folder"</li>
+                        <li>Enter the folder name</li>
+                        <li>Long press on a file and drag it into the folder</li>
+                    </ol>
+                    <p style="margin-top: 10px;">Tip: You can switch between list and grid views, and sort by time or name.</p>`,
+                'reading-features': 'Reading Features',
+                'q3': 'How to adjust reading settings?',
+                'a3': `<p>On the reading page, tap the menu button (three dots) in the top right corner and select "Reading Settings". You can:</p>
+                    <ul>
+                        <li>Choose from 6 Chinese fonts (System Default, LXGW WenKai, Long Cang, etc.)</li>
+                        <li>Adjust font size (12-32pt)</li>
+                        <li>Choose background (White or 3 elegant background images)</li>
+                        <li>Switch themes (Light/Dark/Sepia)</li>
+                    </ul>`,
+                'q4': 'How to add and manage bookmarks?',
+                'a4': `<p><strong>Add Bookmark:</strong></p>
+                    <ol class="steps">
+                        <li>On the reading page, tap the menu and select "Add Bookmark"</li>
+                        <li>Optionally add a note</li>
+                        <li>Tap Save</li>
+                    </ol>
+                    <p style="margin-top: 15px;"><strong>View Bookmarks:</strong></p>
+                    <p>Tap "Bookmark List" in the menu to view all bookmarks. Tap any bookmark to jump to that position, even if it's from another file.</p>`,
+                'q5': 'How to use Text-to-Speech (TTS)?',
+                'a5': `<ol class="steps">
+                        <li>On the reading page, tap the menu and select "Text to Speech"</li>
+                        <li>First time: ensure you've downloaded system voice packages (iOS Settings → Accessibility → Spoken Content → Voices)</li>
+                        <li>While playing, use the bottom control bar to adjust speed, select voice, or pause/resume</li>
+                        <li>Double-tap on text to jump to that position for reading</li>
+                    </ol>
+                    <p style="margin-top: 10px;">Tip: TTS supports auto page turning - it will automatically turn to the next page after finishing the current page.</p>`,
+                'q6': 'How to search article content?',
+                'a6': `<ol class="steps">
+                        <li>On the reading page, tap the menu and select "Search"</li>
+                        <li>Enter keywords</li>
+                        <li>Tap search results to jump to that position</li>
+                    </ol>`,
+                'troubleshooting': 'Troubleshooting',
+                'q7': 'Why do imported files show garbled text?',
+                'a7': `<p>PineReader supports auto-detection of UTF-8, GBK, and GB2312 encodings. If text is still garbled, the file may use an uncommon encoding format.</p>
+                    <p style="margin-top: 10px;"><strong>Solution:</strong></p>
+                    <ul>
+                        <li>Use a text editor to convert the file to UTF-8 encoding and re-import</li>
+                        <li>Or contact us to report the issue - we'll consider supporting more encoding formats</li>
+                    </ul>`,
+                'q8': 'What if TTS says voice is unavailable?',
+                'a8': `<p>This is because the system hasn't downloaded the voice package for that language. Follow these steps:</p>
+                    <ol class="steps">
+                        <li>Open iOS "Settings" app</li>
+                        <li>Go to "Accessibility" → "Spoken Content" → "Voices"</li>
+                        <li>Select "Chinese" or "English" (based on your needs)</li>
+                        <li>Download the required voice (recommend "Enhanced Quality" voices)</li>
+                        <li>Return to PineReader and try again</li>
+                    </ol>`,
+                'q9': 'Will data be lost after reinstalling the app?',
+                'a9': `<p>Yes, due to iOS system limitations, uninstalling the app will delete all data (including imported files, reading history, bookmarks, etc.).</p>
+                    <p style="margin-top: 10px;"><strong>Recommendations:</strong></p>
+                    <ul>
+                        <li>Regularly backup important TXT files to iCloud or other cloud storage</li>
+                        <li>When upgrading the app, update directly without uninstalling to keep all data</li>
+                    </ul>`,
+                'contact-title': 'Have More Questions?',
+                'contact-desc': 'If you encounter any issues or have feature suggestions, feel free to contact us via email:',
+                'contact-note': 'We\'ll reply to your email as soon as possible. Thank you for using PineReader!',
+                'back-home': 'Back to Home'
+            }
+        };
+
+        function switchLanguage() {
+            currentLang = currentLang === 'zh' ? 'en' : 'zh';
+
+            for (const [id, content] of Object.entries(translations[currentLang])) {
+                const element = document.getElementById(id);
+                if (element) {
+                    if (id.startsWith('a')) {
+                        element.innerHTML = content;
+                    } else {
+                        element.textContent = content;
+                    }
+                }
+            }
+        }
+
+        // Check URL hash for language
+        if (window.location.hash === '#en') {
+            switchLanguage();
+        }
+    </script>
+</body>
+</html>

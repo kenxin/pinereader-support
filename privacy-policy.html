@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>隐私政策 - 松果阅读</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 18px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            margin-bottom: 15px;
+        }
+
+        .page-title {
+            font-size: 2em;
+            color: white;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .last-updated {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9em;
+        }
+
+        .content-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+        }
+
+        .intro {
+            background: #f0f7ff;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 1.5em;
+            color: #667eea;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .section-content {
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .section-content p {
+            margin-bottom: 15px;
+        }
+
+        .section-content ul {
+            margin-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        .section-content li {
+            margin-bottom: 8px;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 30px 0;
+        }
+
+        .highlight-box h3 {
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .highlight-box ul {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .highlight-box li {
+            padding-left: 25px;
+            position: relative;
+            margin-bottom: 10px;
+        }
+
+        .highlight-box li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .contact-section {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .contact-section h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .contact-section a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .lang-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 8px 16px;
+            border-radius: 20px;
+            color: white;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .lang-switch:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .back-link {
+            color: white;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            transition: background 0.2s;
+        }
+
+        .back-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        strong {
+            color: #667eea;
+        }
+    </style>
+</head>
+<body>
+    <div class="lang-switch" onclick="switchLanguage()">
+        <span id="lang-text">EN</span>
+    </div>
+
+    <div class="container">
+        <a href="index.html" class="back-link" id="back-link">← 返回首页</a>
+
+        <div class="header">
+            <img src="assets/app_icon.png" alt="松果阅读" class="app-icon">
+            <h1 class="page-title" id="page-title">隐私政策</h1>
+            <p class="last-updated" id="last-updated">最后更新：2026年3月16日</p>
+        </div>
+
+        <div class="content-card">
+            <div class="intro">
+                <p id="intro-text"><strong>松果阅读（PineReader）</strong>由松云工作室（Pinecloud Studio）开发和维护。我们深知隐私对您的重要性，因此从设计之初就将隐私保护作为核心原则。本隐私政策将说明我们如何处理您的信息。</p>
+            </div>
+
+            <div class="highlight-box">
+                <h3 id="tldr-title">简而言之</h3>
+                <ul>
+                    <li id="tldr-1">我们不收集任何个人信息</li>
+                    <li id="tldr-2">我们不跟踪您的使用行为</li>
+                    <li id="tldr-3">我们不使用任何第三方分析服务</li>
+                    <li id="tldr-4">所有数据都存储在您的设备本地</li>
+                    <li id="tldr-5">我们无法访问您的任何数据</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title" id="section1-title">1. 信息收集</h2>
+                <div class="section-content">
+                    <p id="section1-p1"><strong>我们不收集任何信息。</strong></p>
+                    <p id="section1-p2">松果阅读是一款完全离线的应用程序。我们不收集、不存储、不传输任何用户信息，包括但不限于：</p>
+                    <ul>
+                        <li id="section1-li1">个人身份信息（姓名、邮箱、电话等）</li>
+                        <li id="section1-li2">设备信息（设备型号、系统版本等）</li>
+                        <li id="section1-li3">使用数据（阅读记录、使用习惯等）</li>
+                        <li id="section1-li4">位置信息</li>
+                        <li id="section1-li5">联系人或照片等敏感权限</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title" id="section2-title">2. 数据存储</h2>
+                <div class="section-content">
+                    <p id="section2-p1"><strong>所有数据都存储在您的设备本地。</strong></p>
+                    <p id="section2-p2">当您使用松果阅读时，以下数据会存储在您的 iPhone/iPad 本地：</p>
+                    <ul>
+                        <li id="section2-li1">您导入的 TXT 文件</li>
+                        <li id="section2-li2">阅读进度和书签</li>
+                        <li id="section2-li3">您的个人设置（字体、主题等偏好）</li>
+                        <li id="section2-li4">文件夹组织结构</li>
+                    </ul>
+                    <p id="section2-p3">这些数据：</p>
+                    <ul>
+                        <li id="section2-li5">仅存储在您的设备上</li>
+                        <li id="section2-li6">不会上传到任何服务器</li>
+                        <li id="section2-li7">不会与任何第三方分享</li>
+                        <li id="section2-li8">卸载应用后会被完全删除</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title" id="section3-title">3. 权限说明</h2>
+                <div class="section-content">
+                    <p id="section3-p1">松果阅读仅请求必要的系统权限来提供核心功能：</p>
+                    <ul>
+                        <li id="section3-li1"><strong>文件访问权限</strong>：用于导入和读取您选择的 TXT 文件</li>
+                        <li id="section3-li2"><strong>存储权限</strong>：用于在设备本地保存文件和阅读数据</li>
+                        <li id="section3-li3"><strong>音频权限</strong>：用于文字转语音（TTS）功能</li>
+                    </ul>
+                    <p id="section3-p2">我们<strong>不会</strong>请求以下权限：</p>
+                    <ul>
+                        <li id="section3-li4">网络权限（应用完全离线）</li>
+                        <li id="section3-li5">位置信息</li>
+                        <li id="section3-li6">相机或照片</li>
+                        <li id="section3-li7">联系人</li>
+                        <li id="section3-li8">日历或提醒事项</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title" id="section4-title">4. 第三方服务</h2>
+                <div class="section-content">
+                    <p id="section4-p1"><strong>我们不使用任何第三方服务。</strong></p>
+                    <p id="section4-p2">松果阅读不集成任何第三方 SDK、分析工具或广告平台，包括但不限于：</p>
+                    <ul>
+                        <li id="section4-li1">分析服务（如 Google Analytics、Firebase 等）</li>
+                        <li id="section4-li2">广告网络</li>
+                        <li id="section4-li3">社交媒体插件</li>
+                        <li id="section4-li4">崩溃报告工具</li>
+                    </ul>
+                    <p id="section4-p3">应用使用的所有功能（文件管理、阅读器、TTS 等）都基于 iOS 系统提供的原生 API 实现。</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title" id="section5-title">5. 数据安全</h2>
+                <div class="section-content">
+                    <p id="section5-p1">由于所有数据都存储在您的设备本地，数据安全由 iOS 系统保障：</p>
+                    <ul>
+                        <li id="section5-li1">应用数据存储在沙盒环境中，其他应用无法访问</li>
+                        <li id="section5-li2">数据受 iOS 系统加密保护</li>
+                        <li id="section5-li3">如果您启用了 iCloud 备份，阅读数据会随系统备份到 iCloud（由苹果管理）</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title" id="section6-title">6. 儿童隐私</h2>
+                <div class="section-content">
+                    <p id="section6-p1">松果阅读适合所有年龄段用户使用。由于我们不收集任何信息，因此不存在儿童隐私问题。</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title" id="section7-title">7. 隐私政策变更</h2>
+                <div class="section-content">
+                    <p id="section7-p1">如果我们对隐私政策进行重大变更，我们会在此页面更新并在应用中通知您。我们承诺永远不会改变我们的核心原则：<strong>不收集用户数据</strong>。</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title" id="section8-title">8. 联系我们</h2>
+                <div class="section-content">
+                    <p id="section8-p1">如果您对本隐私政策有任何疑问或建议，欢迎通过以下方式联系我们：</p>
+                    <ul>
+                        <li id="section8-li1"><strong>邮箱</strong>: <a href="mailto:pinecloud.ju@gmail.com">pinecloud.ju@gmail.com</a></li>
+                        <li id="section8-li2"><strong>GitHub</strong>: <a href="https://github.com/kenxin" target="_blank">https://github.com/kenxin</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="contact-section">
+                <h3 id="commitment-title">我们的承诺</h3>
+                <p id="commitment-text">松果阅读永远保持简洁、纯粹、尊重用户隐私。<br>您的阅读体验和数据安全是我们的首要关注。</p>
+            </div>
+
+            <div style="text-align: center;">
+                <a href="index.html" class="btn" id="back-home">返回首页</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentLang = 'zh';
+
+        const translations = {
+            zh: {
+                'lang-text': 'EN',
+                'back-link': '← 返回首页',
+                'page-title': '隐私政策',
+                'last-updated': '最后更新：2026年3月16日',
+                'intro-text': '松果阅读（PineReader）由松云工作室（Pinecloud Studio）开发和维护。我们深知隐私对您的重要性，因此从设计之初就将隐私保护作为核心原则。本隐私政策将说明我们如何处理您的信息。',
+                'tldr-title': '简而言之',
+                'tldr-1': '我们不收集任何个人信息',
+                'tldr-2': '我们不跟踪您的使用行为',
+                'tldr-3': '我们不使用任何第三方分析服务',
+                'tldr-4': '所有数据都存储在您的设备本地',
+                'tldr-5': '我们无法访问您的任何数据',
+                'section1-title': '1. 信息收集',
+                'section1-p1': '我们不收集任何信息。',
+                'section1-p2': '松果阅读是一款完全离线的应用程序。我们不收集、不存储、不传输任何用户信息，包括但不限于：',
+                'section1-li1': '个人身份信息（姓名、邮箱、电话等）',
+                'section1-li2': '设备信息（设备型号、系统版本等）',
+                'section1-li3': '使用数据（阅读记录、使用习惯等）',
+                'section1-li4': '位置信息',
+                'section1-li5': '联系人或照片等敏感权限',
+                'section2-title': '2. 数据存储',
+                'section2-p1': '所有数据都存储在您的设备本地。',
+                'section2-p2': '当您使用松果阅读时，以下数据会存储在您的 iPhone/iPad 本地：',
+                'section2-li1': '您导入的 TXT 文件',
+                'section2-li2': '阅读进度和书签',
+                'section2-li3': '您的个人设置（字体、主题等偏好）',
+                'section2-li4': '文件夹组织结构',
+                'section2-p3': '这些数据：',
+                'section2-li5': '仅存储在您的设备上',
+                'section2-li6': '不会上传到任何服务器',
+                'section2-li7': '不会与任何第三方分享',
+                'section2-li8': '卸载应用后会被完全删除',
+                'section3-title': '3. 权限说明',
+                'section3-p1': '松果阅读仅请求必要的系统权限来提供核心功能：',
+                'section3-li1': '文件访问权限：用于导入和读取您选择的 TXT 文件',
+                'section3-li2': '存储权限：用于在设备本地保存文件和阅读数据',
+                'section3-li3': '音频权限：用于文字转语音（TTS）功能',
+                'section3-p2': '我们不会请求以下权限：',
+                'section3-li4': '网络权限（应用完全离线）',
+                'section3-li5': '位置信息',
+                'section3-li6': '相机或照片',
+                'section3-li7': '联系人',
+                'section3-li8': '日历或提醒事项',
+                'section4-title': '4. 第三方服务',
+                'section4-p1': '我们不使用任何第三方服务。',
+                'section4-p2': '松果阅读不集成任何第三方 SDK、分析工具或广告平台，包括但不限于：',
+                'section4-li1': '分析服务（如 Google Analytics、Firebase 等）',
+                'section4-li2': '广告网络',
+                'section4-li3': '社交媒体插件',
+                'section4-li4': '崩溃报告工具',
+                'section4-p3': '应用使用的所有功能（文件管理、阅读器、TTS 等）都基于 iOS 系统提供的原生 API 实现。',
+                'section5-title': '5. 数据安全',
+                'section5-p1': '由于所有数据都存储在您的设备本地，数据安全由 iOS 系统保障：',
+                'section5-li1': '应用数据存储在沙盒环境中，其他应用无法访问',
+                'section5-li2': '数据受 iOS 系统加密保护',
+                'section5-li3': '如果您启用了 iCloud 备份，阅读数据会随系统备份到 iCloud（由苹果管理）',
+                'section6-title': '6. 儿童隐私',
+                'section6-p1': '松果阅读适合所有年龄段用户使用。由于我们不收集任何信息，因此不存在儿童隐私问题。',
+                'section7-title': '7. 隐私政策变更',
+                'section7-p1': '如果我们对隐私政策进行重大变更，我们会在此页面更新并在应用中通知您。我们承诺永远不会改变我们的核心原则：不收集用户数据。',
+                'section8-title': '8. 联系我们',
+                'section8-p1': '如果您对本隐私政策有任何疑问或建议，欢迎通过以下方式联系我们：',
+                'section8-li1': '邮箱: pinecloud.ju@gmail.com',
+                'section8-li2': 'GitHub: https://github.com/kenxin',
+                'commitment-title': '我们的承诺',
+                'commitment-text': '松果阅读永远保持简洁、纯粹、尊重用户隐私。<br>您的阅读体验和数据安全是我们的首要关注。',
+                'back-home': '返回首页'
+            },
+            en: {
+                'lang-text': '中文',
+                'back-link': '← Back to Home',
+                'page-title': 'Privacy Policy',
+                'last-updated': 'Last Updated: March 16, 2026',
+                'intro-text': 'PineReader is developed and maintained by Pinecloud Studio. We understand the importance of privacy, which is why privacy protection has been a core principle from the very beginning. This privacy policy explains how we handle your information.',
+                'tldr-title': 'In Short',
+                'tldr-1': 'We do not collect any personal information',
+                'tldr-2': 'We do not track your usage behavior',
+                'tldr-3': 'We do not use any third-party analytics services',
+                'tldr-4': 'All data is stored locally on your device',
+                'tldr-5': 'We cannot access any of your data',
+                'section1-title': '1. Information Collection',
+                'section1-p1': 'We do not collect any information.',
+                'section1-p2': 'PineReader is a completely offline application. We do not collect, store, or transmit any user information, including but not limited to:',
+                'section1-li1': 'Personal identity information (name, email, phone, etc.)',
+                'section1-li2': 'Device information (device model, system version, etc.)',
+                'section1-li3': 'Usage data (reading history, usage habits, etc.)',
+                'section1-li4': 'Location information',
+                'section1-li5': 'Sensitive permissions like contacts or photos',
+                'section2-title': '2. Data Storage',
+                'section2-p1': 'All data is stored locally on your device.',
+                'section2-p2': 'When you use PineReader, the following data is stored locally on your iPhone/iPad:',
+                'section2-li1': 'TXT files you import',
+                'section2-li2': 'Reading progress and bookmarks',
+                'section2-li3': 'Your personal settings (font, theme preferences, etc.)',
+                'section2-li4': 'Folder organization structure',
+                'section2-p3': 'This data:',
+                'section2-li5': 'Is stored only on your device',
+                'section2-li6': 'Is not uploaded to any server',
+                'section2-li7': 'Is not shared with any third parties',
+                'section2-li8': 'Is completely deleted after uninstalling the app',
+                'section3-title': '3. Permissions',
+                'section3-p1': 'PineReader only requests necessary system permissions to provide core functionality:',
+                'section3-li1': 'File Access: To import and read your selected TXT files',
+                'section3-li2': 'Storage: To save files and reading data locally on device',
+                'section3-li3': 'Audio: For Text-to-Speech (TTS) functionality',
+                'section3-p2': 'We will NOT request the following permissions:',
+                'section3-li4': 'Network access (app is completely offline)',
+                'section3-li5': 'Location information',
+                'section3-li6': 'Camera or photos',
+                'section3-li7': 'Contacts',
+                'section3-li8': 'Calendar or reminders',
+                'section4-title': '4. Third-Party Services',
+                'section4-p1': 'We do not use any third-party services.',
+                'section4-p2': 'PineReader does not integrate any third-party SDKs, analytics tools, or advertising platforms, including but not limited to:',
+                'section4-li1': 'Analytics services (e.g., Google Analytics, Firebase)',
+                'section4-li2': 'Advertising networks',
+                'section4-li3': 'Social media plugins',
+                'section4-li4': 'Crash reporting tools',
+                'section4-p3': 'All features (file management, reader, TTS, etc.) are implemented using native iOS APIs.',
+                'section5-title': '5. Data Security',
+                'section5-p1': 'Since all data is stored locally on your device, data security is guaranteed by the iOS system:',
+                'section5-li1': 'App data is stored in a sandbox environment, inaccessible to other apps',
+                'section5-li2': 'Data is protected by iOS system encryption',
+                'section5-li3': 'If you enable iCloud backup, reading data will be backed up to iCloud (managed by Apple)',
+                'section6-title': '6. Children\'s Privacy',
+                'section6-p1': 'PineReader is suitable for users of all ages. Since we do not collect any information, there are no children\'s privacy concerns.',
+                'section7-title': '7. Privacy Policy Changes',
+                'section7-p1': 'If we make significant changes to our privacy policy, we will update this page and notify you in the app. We promise to never change our core principle: we do not collect user data.',
+                'section8-title': '8. Contact Us',
+                'section8-p1': 'If you have any questions or suggestions about this privacy policy, please contact us:',
+                'section8-li1': 'Email: pinecloud.ju@gmail.com',
+                'section8-li2': 'GitHub: https://github.com/kenxin',
+                'commitment-title': 'Our Commitment',
+                'commitment-text': 'PineReader will always remain simple, pure, and respectful of user privacy.<br>Your reading experience and data security are our top priorities.',
+                'back-home': 'Back to Home'
+            }
+        };
+
+        function switchLanguage() {
+            currentLang = currentLang === 'zh' ? 'en' : 'zh';
+
+            for (const [id, text] of Object.entries(translations[currentLang])) {
+                const element = document.getElementById(id);
+                if (element) {
+                    if (id === 'commitment-text') {
+                        element.innerHTML = text;
+                    } else {
+                        element.textContent = text;
+                    }
+                }
+            }
+        }
+
+        // Check URL hash for language
+        if (window.location.hash === '#en') {
+            switchLanguage();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>松果阅读 - PineReader</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .app-icon {
+            width: 120px;
+            height: 120px;
+            border-radius: 26px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            margin-bottom: 20px;
+        }
+
+        .app-name {
+            font-size: 2.5em;
+            color: white;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .tagline {
+            font-size: 1.2em;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 30px;
+        }
+
+        .content-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            color: #667eea;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .features {
+            display: grid;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .feature {
+            display: flex;
+            gap: 15px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .feature:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 2em;
+            flex-shrink: 0;
+        }
+
+        .feature-content h3 {
+            color: #667eea;
+            margin-bottom: 8px;
+            font-size: 1.2em;
+        }
+
+        .feature-content p {
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .highlight {
+            text-align: center;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            color: white;
+        }
+
+        .highlight-icon {
+            font-size: 2em;
+            margin-bottom: 8px;
+        }
+
+        .highlight-text {
+            font-size: 0.9em;
+        }
+
+        .links {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .footer {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: 40px;
+            padding: 20px;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .lang-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 8px 16px;
+            border-radius: 20px;
+            color: white;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .lang-switch:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="lang-switch" onclick="switchLanguage()">
+        <span id="lang-text">EN</span>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <img src="assets/app_icon.png" alt="松果阅读" class="app-icon">
+            <h1 class="app-name" id="app-name">松果阅读</h1>
+            <p class="tagline" id="tagline">简洁优雅的 TXT 文本阅读器</p>
+        </div>
+
+        <div class="content-card">
+            <h2 class="section-title" id="about-title">关于松果阅读</h2>
+            <p id="about-desc">松果阅读是一款专为 iOS 设计的简洁优雅的 TXT 文本阅读器。无需联网，完全离线使用，注重隐私保护。支持智能文件管理、跨文件书签、文字转语音等强大功能，为您带来沉浸式的阅读体验。</p>
+
+            <div class="highlights">
+                <div class="highlight">
+                    <div class="highlight-icon">✨</div>
+                    <div class="highlight-text" id="highlight1">简洁优雅</div>
+                </div>
+                <div class="highlight">
+                    <div class="highlight-icon">🔒</div>
+                    <div class="highlight-text" id="highlight2">完全离线</div>
+                </div>
+                <div class="highlight">
+                    <div class="highlight-icon">📚</div>
+                    <div class="highlight-text" id="highlight3">智能管理</div>
+                </div>
+                <div class="highlight">
+                    <div class="highlight-icon">🎧</div>
+                    <div class="highlight-text" id="highlight4">听书模式</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <h2 class="section-title" id="features-title">核心功能</h2>
+
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">📁</div>
+                    <div class="feature-content">
+                        <h3 id="feature1-title">智能文件管理</h3>
+                        <p id="feature1-desc">支持创建文件夹整理书籍，拖拽操作快速移动文件。列表/网格双视图切换，按时间或名称排序，轻松管理您的书库。</p>
+                    </div>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">📖</div>
+                    <div class="feature-content">
+                        <h3 id="feature2-title">舒适阅读体验</h3>
+                        <p id="feature2-desc">6种精选中文字体，3种阅读主题（白天/夜间/护眼），4种优雅背景图片。字体大小自由调节，流畅的左右滑动翻页，智能进度条显示。</p>
+                    </div>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">🔖</div>
+                    <div class="feature-content">
+                        <h3 id="feature3-title">跨文件书签</h3>
+                        <p id="feature3-desc">添加书签支持备注，智能书签指示器。跨文件书签列表，点击即可跳转。书签预览文字显示，随时回到重要段落。</p>
+                    </div>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">🎧</div>
+                    <div class="feature-content">
+                        <h3 id="feature4-title">文字转语音 (TTS)</h3>
+                        <p id="feature4-desc">支持中英文朗读，语速可调（10%-100%），多种系统语音选择。悬浮控制栏，锁屏控制，双击跳转朗读，自动翻页播放。</p>
+                    </div>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">🔍</div>
+                    <div class="feature-content">
+                        <h3 id="feature5-title">全文搜索</h3>
+                        <p id="feature5-desc">快速搜索文章内容，高亮显示匹配结果。支持中英文搜索，点击搜索结果即可跳转到相应位置。</p>
+                    </div>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">🌏</div>
+                    <div class="feature-content">
+                        <h3 id="feature6-title">多编码支持</h3>
+                        <p id="feature6-desc">自动检测 UTF-8、GBK、GB2312 编码，智能降级处理，避免乱码问题。轻松阅读各种来源的 TXT 文件。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <h2 class="section-title" id="privacy-title">隐私保护</h2>
+            <p id="privacy-desc">松果阅读完全尊重您的隐私：</p>
+            <ul style="margin-top: 15px; margin-left: 20px; color: #666;">
+                <li id="privacy1">❌ 不收集任何个人信息或使用数据</li>
+                <li id="privacy2">✅ 完全离线工作，无需网络权限</li>
+                <li id="privacy3">✅ 所有数据存储在设备本地</li>
+                <li id="privacy4">❌ 无第三方服务、分析工具或广告</li>
+            </ul>
+        </div>
+
+        <div class="links">
+            <a href="support.html" class="btn" id="link-support">帮助与支持</a>
+            <a href="privacy-policy.html" class="btn" id="link-privacy">隐私政策</a>
+            <a href="mailto:pinecloud.ju@gmail.com" class="btn" id="link-contact">联系作者</a>
+        </div>
+
+        <div class="footer">
+            <p>© 2026 <span id="footer-studio">松云工作室</span> (Pinecloud Studio)</p>
+            <p style="margin-top: 10px;">
+                <a href="https://github.com/kenxin">GitHub</a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        let currentLang = 'zh';
+
+        const translations = {
+            zh: {
+                'app-name': '松果阅读',
+                'tagline': '简洁优雅的 TXT 文本阅读器',
+                'about-title': '关于松果阅读',
+                'about-desc': '松果阅读是一款专为 iOS 设计的简洁优雅的 TXT 文本阅读器。无需联网，完全离线使用，注重隐私保护。支持智能文件管理、跨文件书签、文字转语音等强大功能，为您带来沉浸式的阅读体验。',
+                'highlight1': '简洁优雅',
+                'highlight2': '完全离线',
+                'highlight3': '智能管理',
+                'highlight4': '听书模式',
+                'features-title': '核心功能',
+                'feature1-title': '智能文件管理',
+                'feature1-desc': '支持创建文件夹整理书籍，拖拽操作快速移动文件。列表/网格双视图切换，按时间或名称排序，轻松管理您的书库。',
+                'feature2-title': '舒适阅读体验',
+                'feature2-desc': '6种精选中文字体，3种阅读主题（白天/夜间/护眼），4种优雅背景图片。字体大小自由调节，流畅的左右滑动翻页，智能进度条显示。',
+                'feature3-title': '跨文件书签',
+                'feature3-desc': '添加书签支持备注，智能书签指示器。跨文件书签列表，点击即可跳转。书签预览文字显示，随时回到重要段落。',
+                'feature4-title': '文字转语音 (TTS)',
+                'feature4-desc': '支持中英文朗读，语速可调（10%-100%），多种系统语音选择。悬浮控制栏，锁屏控制，双击跳转朗读，自动翻页播放。',
+                'feature5-title': '全文搜索',
+                'feature5-desc': '快速搜索文章内容，高亮显示匹配结果。支持中英文搜索，点击搜索结果即可跳转到相应位置。',
+                'feature6-title': '多编码支持',
+                'feature6-desc': '自动检测 UTF-8、GBK、GB2312 编码，智能降级处理，避免乱码问题。轻松阅读各种来源的 TXT 文件。',
+                'privacy-title': '隐私保护',
+                'privacy-desc': '松果阅读完全尊重您的隐私：',
+                'privacy1': '❌ 不收集任何个人信息或使用数据',
+                'privacy2': '✅ 完全离线工作，无需网络权限',
+                'privacy3': '✅ 所有数据存储在设备本地',
+                'privacy4': '❌ 无第三方服务、分析工具或广告',
+                'link-support': '帮助与支持',
+                'link-privacy': '隐私政策',
+                'link-contact': '联系作者',
+                'footer-studio': '松云工作室'
+            },
+            en: {
+                'app-name': 'PineReader',
+                'tagline': 'A Simple and Elegant TXT Reader',
+                'about-title': 'About PineReader',
+                'about-desc': 'PineReader is a simple and elegant TXT reader designed for iOS. Works completely offline, respects your privacy. Features smart file management, cross-file bookmarks, text-to-speech, and more for an immersive reading experience.',
+                'highlight1': 'Simple & Elegant',
+                'highlight2': 'Fully Offline',
+                'highlight3': 'Smart Management',
+                'highlight4': 'Listen Mode',
+                'features-title': 'Core Features',
+                'feature1-title': 'Smart File Management',
+                'feature1-desc': 'Create folders to organize books, drag and drop to move files. Switch between list/grid views, sort by time or name, easily manage your library.',
+                'feature2-title': 'Comfortable Reading',
+                'feature2-desc': '6 curated Chinese fonts, 3 reading themes (Light/Dark/Sepia), 4 elegant backgrounds. Adjustable font size, smooth page flipping, smart progress bar.',
+                'feature3-title': 'Cross-File Bookmarks',
+                'feature3-desc': 'Add bookmarks with notes, smart bookmark indicators. Cross-file bookmark list, tap to jump. Preview text display, return to important passages anytime.',
+                'feature4-title': 'Text to Speech (TTS)',
+                'feature4-desc': 'Support Chinese and English, adjustable speed (10%-100%), multiple system voices. Floating control bar, lock screen control, double-tap to jump, auto page turning.',
+                'feature5-title': 'Full-Text Search',
+                'feature5-desc': 'Quickly search article content, highlight matched results. Support Chinese and English search, tap results to jump to position.',
+                'feature6-title': 'Multi-Encoding Support',
+                'feature6-desc': 'Auto-detect UTF-8, GBK, GB2312 encoding, smart fallback handling, avoid garbled text. Easily read TXT files from various sources.',
+                'privacy-title': 'Privacy Protection',
+                'privacy-desc': 'PineReader fully respects your privacy:',
+                'privacy1': '❌ No personal information or usage data collected',
+                'privacy2': '✅ Works completely offline, no network permission required',
+                'privacy3': '✅ All data stored locally on device',
+                'privacy4': '❌ No third-party services, analytics, or ads',
+                'link-support': 'Help & Support',
+                'link-privacy': 'Privacy Policy',
+                'link-contact': 'Contact Author',
+                'footer-studio': 'Pinecloud Studio'
+            }
+        };
+
+        function switchLanguage() {
+            currentLang = currentLang === 'zh' ? 'en' : 'zh';
+            document.getElementById('lang-text').textContent = currentLang === 'zh' ? 'EN' : '中文';
+
+            for (const [id, text] of Object.entries(translations[currentLang])) {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.textContent = text;
+                }
+            }
+        }
+
+        // Check URL hash for language
+        if (window.location.hash === '#en') {
+            switchLanguage();
+        }
+    </script>
+</body>
+</html>
